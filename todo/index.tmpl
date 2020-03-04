@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Query AP from Console Server</title>
+    <style type="test/css">
+        body {font-family: Arial, Helvetica, sans-serif; color:black;
+            background: #ffffff; }
+    </style>
+</head>
+<body>
+<h1 align="center">From console server 10.155.38.248, the port connect to AP</h1>
+<h2 align="center">Need 3 ~ 5 minutes</h2>
+<h2 align="center"><a href="http://10.155.38.203:8000/refresh">Requery Device</a></h2>
+
+<h2 align="center">last update on {{todo_time}}</h2>
+
+
+{% if todo %}
+<table align="center" border="1">
+    <tr><td align="center">ID</td>
+        <td align="center">PORT</td>
+        <td align="center">TYPE</td>
+        <td align="center">MAC</td>
+        <td align="center">VERSION</td>
+        <td align="center">SERIAR</td>
+        <td align="center">IP</td></tr>
+    {%for tod in todo %}
+        <tr><td align="center">{{tod.ID}}</td>
+            <td align="center">{{tod.PORT}}</td>
+            <td align="center">{{tod.TYPE}}</td>
+            <td align="center">{{tod.MAC}}</td>
+            <td align="center">{{tod.VERSION}}</td>
+            <td align="center">{{tod.SERIAL}}</td>
+            <td align="center">{{tod.IP}}</td></tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>you have nothing to do!</p>
+{% endif %}
+
+</body>
+</html>
